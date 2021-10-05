@@ -1,0 +1,7 @@
+<img src={{imageUrl}} width="170" height="170" alt={{product._id}}>
+<hr>
+{{product.price}} ₪<br>
+{{product.name}} <br>
+<a *ngIf="isAdmin" routerLink="/admin-actions" [state]="{ data: product }">ערוך מוצר 📝</a> 
+<a *ngIf="!isAdmin" routerLink="/products" data-toggle="modal" [attr.data-target]="'#' + product._id">+ הוסף לעגלה</a>
+<app-add-product-cart *ngIf="!isAdmin" [product]="product"></app-add-product-cart>

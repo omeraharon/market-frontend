@@ -1,0 +1,19 @@
+
+<div class="box">
+    <h5>שלב ראשון - התחבר או הירשם</h5>
+    <form #myForm="ngForm" (submit)="login()">
+
+        <label>מייל</label>
+        <input #emailBox="ngModel" type="text" name="email" [(ngModel)]="credentials.email" required>
+        <span *ngIf="emailBox.errors?.required && emailBox.touched">חסר מייל</span>
+
+        <label>סיסמא</label>
+        <input #passwordBox="ngModel" type="password" name="password" [(ngModel)]="credentials.password" required>
+        <span *ngIf="passwordBox.errors?.required && passwordBox.touched">חסר סיסמא</span>
+
+        <a routerLink="/register">אין לך משתמש עדיין ? הירשם עכשיו</a>
+
+        <button [disabled]="myForm.form.invalid">התחבר</button>
+    </form>
+
+</div>

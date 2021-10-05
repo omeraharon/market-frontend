@@ -1,0 +1,72 @@
+<div>
+
+    <form #myForm="ngForm" *ngIf="!firstStep" (submit)="firstStepOfRegister()"> 
+        <h5>שלב ראשון - פרטי משתמש</h5>
+
+        <label>תעודת זהות</label>
+        <input #idBox="ngModel" type="text" name="idNumber" [(ngModel)]="user.idNumber" required pattern="^\d{9}$">
+        <span *ngIf="idBox.errors?.required && idBox.touched">חסר תעודת זהות</span>
+        <span *ngIf="idBox.errors?.pattern&& idBox.touched">תעודת זהות חייבת להכיל 9 ספרות</span>
+
+        <label>מייל</label> 
+        <input #emailBox="ngModel" type="text" name="email" [(ngModel)]="user.email" required pattern="^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+''))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$">
+        <span *ngIf="emailBox.errors?.required && emailBox.touched">חסר מייל</span>
+        <span *ngIf="emailBox.errors?.pattern && emailBox.touched">תבנית מייל לא תקינה</span>
+
+        <label>סיסמא</label>
+        <input #passwordBox="ngModel" type="password" name="password" [(ngModel)]="user.password" required pattern="^[a-zA-Z0-9_.-]*$">
+        <span *ngIf="passwordBox.errors?.required && passwordBox.touched">חסר סיסמא</span>
+        <span *ngIf="passwordBox.errors?.pattern && passwordBox.touched">סיסמא לא תקינה</span>
+
+        <label>אשר סיסמא</label>
+        <input #confirmPasswordBox="ngModel" type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" required pattern="^[a-zA-Z0-9_.-]*$">
+        <span *ngIf="confirmPasswordBox.errors?.required && confirmPasswordBox.touched">חסר סיסמא</span>
+        <span *ngIf="confirmPasswordBox.errors?.pattern && confirmPasswordBox.touched">סיסמא לא תקינה</span>
+
+        <a routerLink="/home">משתמש קיים ? התחבר עכשיו</a>
+
+        <button [disabled]="myForm.form.invalid">לשלב הבא</button>
+    </form>
+
+    <form #myForm="ngForm" *ngIf="firstStep" (submit)="register()">
+        <h5>שלב שני - פרטי משלוח</h5>
+        <button (click)="previous()">הקודם</button><br>
+
+        <label>עיר</label>
+        <select #cityBox="ngModel" name="city" [(ngModel)]="user.city" required>
+            <option value="תל אביב">תל אביב</option>
+            <option value="חיפה">חיפה</option>
+            <option value="ירושלים">ירושלים</option>
+            <option value="אילת">אילת</option>
+            <option value="ראשון לציון">ראשון לציון</option>
+            <option value="רחובות">רחובות</option>
+            <option value="חדרה">חדרה</option>
+            <option value="מודיעין">מודיעין</option>
+            <option value="בת ים">בת ים</option>
+            <option value="באר שבע">באר שבע</option>
+        </select>
+        <span *ngIf="cityBox.errors?.required && cityBox.touched">חסר עיר</span>
+
+        <label>רחוב</label> 
+        <input #streetBox="ngModel" type="text" name="street" [(ngModel)]="user.street" required pattern="^[a-zא-ת]+(?:[\s-][a-zא-ת0-9]+)*$" minlength="2">
+        <span *ngIf="streetBox.errors?.required && streetBox.touched">חסר רחוב</span>
+        <span *ngIf="streetBox.errors?.pattern && streetBox.touched">אנא הכנס שם רחוב תקין</span>
+        <span *ngIf="streetBox.errors?.minlength && streetBox.touched">שם רחוב חייב להכיל יותר מ-2 אותיות</span>
+
+        <label>שם פרטי</label>
+        <input #firstNameBox="ngModel" type="text" name="firstName" [(ngModel)]="user.firstName" required pattern="^[a-zא-ת]+(?:[\s-][a-zא-ת]+)*$" minlength="2">
+        <span *ngIf="firstNameBox.errors?.required && firstNameBox.touched">חסר שם פרטי</span>
+        <span *ngIf="firstNameBox.errors?.pattern && firstNameBox.touched">אנא הכנס שם פרטי תקין</span>
+        <span *ngIf="firstNameBox.errors?.minlength && firstNameBox.touched">שם פרטי חייב להכיל יותר מ-2 אותיות</span>
+
+        <label>שם משפחה</label>
+        <input #lastNameBox="ngModel" type="text" name="lastName" [(ngModel)]="user.lastName" required pattern="^[a-zא-ת]+(?:[\s-][a-zא-ת]+)*$" minlength="2">
+        <span *ngIf="lastNameBox.errors?.required && lastNameBox.touched">חסר שם משפחה</span>
+        <span *ngIf="lastNameBox.errors?.pattern && lastNameBox.touched">אנא הכנס שם משפחה תקין</span>
+        <span *ngIf="lastNameBox.errors?.minlength && lastNameBox.touched">שם משפחה חייב להכיל יותר מ-2 אותיות</span>
+
+        <a routerLink="/home">משתמש קיים ? התחבר עכשיו</a>
+
+        <button [disabled]="myForm.form.invalid">הירשם</button>
+    </form>
+</div>

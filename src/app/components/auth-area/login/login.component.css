@@ -1,0 +1,18 @@
+form {
+    width: 300px;
+    margin: 50px auto;
+}
+
+input, label {
+    margin: 20px auto;
+	width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    font-weight: bold;
+}
+
+span {
+    display: block;
+    margin-bottom: 30px;
+    color: #bf2717;
+}

@@ -1,0 +1,33 @@
+div {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: right;
+}
+
+input, label {
+    margin: 20px auto;
+	width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    font-weight: bold;
+}
+
+
+
+span {
+    display: block;
+    margin-bottom: 30px;
+    color: #bf2717;
+}
+
+h5 {
+    color: #bf2717;
+}

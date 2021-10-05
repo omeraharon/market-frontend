@@ -1,0 +1,21 @@
+<div>
+    <app-login *ngIf="!user"></app-login>
+
+    <div *ngIf="user" class="user-menu">
+        <p> 
+            שלום {{user?.firstName}}
+        </p>
+
+        <span *ngIf="lastOrder && cart?.completed">תאריך הרכישה האחרונה שלך: {{ lastOrder.orderDate?.toString().split('T')[0] }}</span><br><br>
+
+        <span *ngIf="cart && !cart?.completed">יש לך עגלה שלא נסגרה מתאריך: <b>{{cart.dateOfCreationCart?.toString().split('T')[0]}} </b><br>
+        <a routerLink="/products">לחץ כאן להמשך קניה</a></span>
+        <span *ngIf="!cart">ברוכים הבאים לקניה הראשונה שלך !</span>
+        <button *ngIf="cart?.completed || !cart" (click)="addCart()"><b>+</b> לחץ כאן כדי לצור עגלה חדשה</button>
+    </div>
+
+    <div class="web-details">
+        <span>סך כל ההזמנות שבוצעו: <b>{{orders?.length || 0}}</b></span>
+        <span>כמות המוצרים הזמינים באתר: <b>{{products?.length || 0}}</b></span>
+    </div>
+</div>

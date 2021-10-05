@@ -1,0 +1,27 @@
+<div>
+    <app-customer-cart *ngIf="!isAdmin" [orderShow]="false" class="cart"></app-customer-cart>
+    <div class="products">
+
+        <label>חפש בחנות</label><br>
+        <input type="search" (input)="searchProducts($event)"/>
+        <hr>
+
+        <ul>
+            <li *ngFor="let category of categories">
+                <button (click)="productsByCategory($event)" value={{category._id}}>{{category.name}}</button>
+            </li>
+        </ul>
+
+        <a routerLink="/admin-actions" *ngIf="isAdmin">+ הוסף מוצר</a>
+        <hr>
+
+        <a routerLink="/products" (click)="allProducts()"> לכל המוצרים </a>
+        <a *ngIf="!isAdmin" routerLink="/home"> לדף הבית</a>
+
+        <div class="list">
+            <span *ngIf="!products?.length">אין תוצאות</span>
+            <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+        </div>
+    </div>
+</div>
+

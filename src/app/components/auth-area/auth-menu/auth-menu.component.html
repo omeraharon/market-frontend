@@ -1,0 +1,12 @@
+<div>
+
+    <ng-container *ngIf="!user">
+        <span>שלום אורח</span>
+    </ng-container>
+
+    <ng-container *ngIf="user">
+        <span>{{user.firstName}} {{user.lastName}} </span>
+        <a routerLink="/logout" routerLinkActive="active"> התנתק </a>
+    </ng-container>
+
+</div>

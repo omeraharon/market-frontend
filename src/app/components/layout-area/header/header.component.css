@@ -1,0 +1,57 @@
+
+
+.top-header {
+    width: 100%;
+    background-color: rgb(252, 252, 252);
+    /* border-bottom: 1px solid #bf2717; */
+    color: #57565c;
+    height: 200px;
+    text-align: center;
+}
+
+img {
+    margin: 20px auto;
+}
+
+.parallax {
+    background-image: url('../../../../assets/images/parallax2.jpg'); 
+    width: 100%;
+    height: 500px; 
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    overflow: hidden; 
+    margin: auto;
+}
+
+.parallax-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.parallax-content {
+    width: 300px;
+    height: 280px;
+    text-align: center;
+    background-color: rgb(252, 252, 252, .4);
+    margin: 200px 100px; 
+    border-radius: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+span {
+    display: block;
+    text-align: left;
+}
+
+h3 {
+    color: #bf2717;
+}
+
+h5 {
+    color: #57565c;
+}
+
+h3, h5 {
+    padding-top: 40px;
+}

@@ -1,0 +1,71 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #57565c;
+    direction: rtl;
+}
+
+.box {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    font-size: small;
+    background-color: #bf2717;
+    /* background-image: linear-gradient(#f62f00, #bf2717); */
+    height: 30px;
+    width: 200px;
+    min-width: 130px;
+    color: white;
+    margin-top: 10px;
+}
+
+a {
+    color: #bf2717;
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+    border-radius: 10px; 
+    border: 1px solid #e7e7e7;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bf2717; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ee3b27;
+}
+
+@media screen and (max-width: 800px) {
+    button {
+        min-width: 50px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    button {
+        min-width: 100px;
+        margin: auto;
+    }
+}

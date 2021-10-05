@@ -1,0 +1,30 @@
+<div>
+
+    <form #myForm="ngForm" (submit)="send()">
+
+        <label>שם מוצר:</label>
+        <input #nameBox="ngModel" type="text" name="name" [(ngModel)]="product.name" required minlength="2">
+        <span *ngIf="nameBox.errors?.required && nameBox.touched">חסר שם מוצר</span>
+        <span *ngIf="nameBox.errors?.minlength && nameBox.touched">שם מוצר חייב להכיל יותר מ-2 אותיות</span>
+
+        <label>קטגוריה</label>
+        <select #categoryBox="ngModel" [(ngModel)]="product.categoryId" name="category" required>
+            <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+        </select>
+        <span *ngIf="categoryBox.errors?.required && categoryBox.touched">חסר קטגוריה</span>
+
+        <label>מחיר:</label>
+        <input #priceBox="ngModel" type="number" step="0.01" [(ngModel)]="product.price" name="price" required>
+        <span *ngIf="priceBox.invalid && priceBox.touched">חסר מחיר</span>
+
+        <label>תמונה</label>
+        <input *ngIf="!editStatus" type="file" accept="image/*" (change)="saveImage($event)" (blur)="imageBlur()" required>
+        <span *ngIf="!editStatus && imageVisited && !product.image">Missing image.</span>
+
+        <input *ngIf="editStatus" type="file" accept="image/*" (change)="saveImage($event)">
+
+        <button [disabled]="myForm.form.invalid" *ngIf="editStatus">ערוך מוצר</button>
+        <button [disabled]="myForm.form.invalid" *ngIf="!editStatus">הוסף מוצר</button>
+    </form>
+
+</div>

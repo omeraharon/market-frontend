@@ -1,0 +1,65 @@
+div {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+
+.cart {
+    flex: 30%;
+    max-width: 50%;
+}
+
+.products {
+    flex: 70%;
+    display: block;
+    text-align: center;
+}
+
+.products > input {
+    width: 50%;
+}
+
+.products > ul {
+    box-sizing: border-box;
+    display: block;
+}
+
+.products > button {
+    width: auto;
+    position: relative;
+    top: 5px;
+    right: 70px;
+}
+
+.products > ul > li > button {
+    width: auto;
+    margin: 10px;
+}
+.products > ul > li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.list {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.list > * {
+    display: inline-block;
+    width: 40%;
+    height: 200px;
+    margin: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .cart {
+        max-width: 50%;
+    }
+    .list > * {
+        width: 90%;
+        margin: 0;
+    }
+}

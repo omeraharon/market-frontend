@@ -1,0 +1,29 @@
+<div>
+    <app-customer-cart [orderShow]="true"></app-customer-cart>
+    <br>
+    <form #myForm="ngForm" (submit)="addOrder()">
+        <h5>פרטי משלוח</h5>
+        <label>עיר</label>
+        <input (dblclick)="autoComplete()" #cityBox="ngModel" type="text" name="city" [(ngModel)]="order.city" required pattern="^[a-zא-ת]+(?:[\s-][a-zא-ת]+)*$" minlength="2"> 
+        <span *ngIf="cityBox.errors?.required && cityBox.touched">חסר עיר</span>
+        <span *ngIf="cityBox.errors?.pattern && cityBox.touched">אנא הכנס שם עיר תקין</span>
+        <span *ngIf="cityBox.errors?.minlength && cityBox.touched">שם עיר חייב להכיל יותר מ-2 אותיות</span>
+
+        <label>רחוב</label> 
+        <input (dblclick)="autoComplete()" #streetBox="ngModel" type="text" name="street" [(ngModel)]="order.street" required pattern="^[a-zא-ת]+(?:[\s-][a-zא-ת0-9]+)*$" minlength="2">
+        <span *ngIf="streetBox.errors?.required && streetBox.touched">חסר רחוב</span>
+        <span *ngIf="streetBox.errors?.pattern && streetBox.touched">אנא הכנס שם רחוב תקין</span>
+        <span *ngIf="streetBox.errors?.minlength && streetBox.touched">שם רחוב חייב להכיל יותר מ-2 אותיות</span>
+
+        <label>תאריך משלוח</label>
+        <input #deliveryDateBox="ngModel" type="date" name="deliveryDate" [(ngModel)]="order.deliveryDate" required min={{today}}>
+        <span *ngIf="deliveryDateBox.errors?.required && deliveryDateBox.touched">חסר תאריך משלוח</span>
+
+        <label>כרטיס אשראי</label>
+        <input #creditCardBox="ngModel" type="text" name="creditCard" [(ngModel)]="order.creditCard" required pattern="\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}">
+        <span *ngIf="creditCardBox.errors?.required && creditCardBox.touched">חסר כרטיס אשראי</span>
+        <span *ngIf="creditCardBox.errors?.pattern && creditCardBox.touched">כרטיס אשראי אינו תקין</span>
+
+        <button [disabled]="myForm.form.invalid">בצע הזמנה</button>
+    </form>
+</div>

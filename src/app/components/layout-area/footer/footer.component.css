@@ -1,0 +1,18 @@
+.copyright {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    background-color: #bf2717;
+    color: white;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+img {
+    position: relative;
+    top: 0;
+}
+
+
+

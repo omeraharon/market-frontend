@@ -1,0 +1,42 @@
+div {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 50px;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+
+.web-details {
+    border: 1px solid rgb(143, 7, 7, .2);
+    border-radius: 20px;
+    display: inline-block;
+    text-align: right;
+    background-color: rgb(252, 252, 252);
+    width: 300px;
+    margin: 50px;
+}
+
+.web-details > span {
+    display: block;
+    width: 90%;
+    min-width: 130px;
+    padding-top: 10px;
+}
+
+
+.user-menu {
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+}
+
+@media screen and (max-width: 800px) {
+    .web-details {
+        margin: 20px auto;
+    }
+}
+
